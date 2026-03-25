@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Miner Game</title>
+    <style>
+        canvas {
+            background: #efefef;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Gold Miner Game</h1>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        // Game Constants
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        // Game Variables
+        let score = 0;
+
+        // Drawing function
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(0, 0, 50, 50); // Example player
+            ctx.fillStyle = 'black';
+            ctx.fillText('Score: ' + score, 10, 20);
+        }
+
+        // Game loop
+        function gameLoop() {
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+        gameLoop(); // Start the game loop
+    </script>
+</body>
+</html>
